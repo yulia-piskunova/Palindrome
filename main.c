@@ -2,7 +2,13 @@
 #include <string.h>
 
 int check(char str[]) {
+    int i, length;
 
+    length = strlen(str);
+
+    for (i = 0; i < length; i ++)
+        if (str[i] != str[(length - 1) - i]) return 0;
+    return 1;
 }
 
 int main(void) {
@@ -11,7 +17,7 @@ int main(void) {
     int count = 0;
 
     printf("\n");
-    printf("\nVvedite stroku:\n");
+    printf("\nEnter a string:\n");
 
     gets(str);
     word = strtok(str, " ");
@@ -19,17 +25,17 @@ int main(void) {
 
     while (word != NULL) {
         if (check(word) == 1) {
-            printf("\nSlovo: %s", word);
+            printf("\nWord: %s", word);
             printf(" - Palindrome");
             count ++;
         } else {
-            printf("\nSlovo: %s", word);
+            printf("\nWord: %s", word);
             printf(" - Not Palindrome");
         }
         word = strtok(NULL, " ");
     }
 
-    printf("\n\nKolichestvo palindromov = %i", count);
+    printf("\n\nHow many palidromes = %i", count);
 
     return 0;
 }
