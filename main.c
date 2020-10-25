@@ -12,30 +12,29 @@ int check(char str[]) {
 }
 
 int main(void) {
-    char str[80];
+    char str[80]; // инициализация переменных
     char *word;
     int count = 0;
 
-    printf("\n");
-    printf("\nEnter a string:\n");
+    printf("\nEnter a string:\n"); // вывод текста
 
-    gets(str);
-    word = strtok(str, " ");
+    gets(str); //ввод строки
+    word = strtok(str, " "); // разбиваю на слова
     printf("\n");
 
     while (word != NULL) {
-        if (check(word) == 1) {
-            printf("\nWord: %s", word);
-            printf(" - Palindrome");
-            count ++;
+        if (check(word) == 1) { // проверка на палиндром
+            printf("\nWord: %s", word); // вывод текста и слова
+            printf(" - Palindrome"); // вывод текста
+            count ++; // увеличение на 1
         } else {
-            printf("\nWord: %s", word);
-            printf(" - Not Palindrome");
+            printf("\nWord: %s", word); //вывод текста и слова
+            printf(" - Not Palindrome"); // вывод текста
         }
         word = strtok(NULL, " ");
     }
 
-    printf("\n\nHow many palidromes = %i", count);
+    printf("\n\nHow many palidromes = %i", count); // вывод текста и кол-во палиндромов
 
     return 0;
 }
